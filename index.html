@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevTools Exploration Lab</title>
+  <style>
+    /* CSS Variables & Global Styles */
+    :root {
+      --primary-color: #4f46e5;
+      --secondary-color: #06b6d4;
+      --background-dark: #0f172a;
+      --card-bg: #1e293b;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-badge: #f59e0b;
+      --border-radius-lg: 12px;
+      --border-radius-sm: 6px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      padding-bottom: 40px;
+    }
+
+    /* Header & Navigation */
+    .site-header {
+      background-color: #1e293b;
+      border-bottom: 2px solid #334155;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-box {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      letter-spacing: 1px;
+    }
+
+    .nav-menu ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-light);
+    }
+
+    /* Hero Section */
+    #hero-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #334155;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 2rem auto;
+    }
+
+    .btn {
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--border-radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+    }
+
+    /* Features Section & Flex Container */
+    .content-section {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--secondary-color);
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: var(--border-radius-lg);
+      padding: 1.75rem;
+      flex: 1;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--accent-badge);
+      color: #000000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .card-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Footer Area */
+    .footer-area {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      background-color: #0b1120;
+      border-top: 1px solid #1e293b;
+    }
+
+    .copyright-text {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="main-header" class="site-header">
+    <div id="header-logo" class="logo-box">DevTools Academy</div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#hero-section" class="nav-link">Home</a></li>
+        <li><a href="#features-section" class="nav-link">Modules</a></li>
+        <li><a href="#site-footer" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="content-area">
+
+    <!-- Hero Banner Section -->
+    <section id="hero-section">
+      <h1 class="hero-title">Chrome DevTools Lab</h1>
+      <p class="hero-description">Welcome to the hands-on DOM inspection workshop. Your mission is to use Chrome DevTools to inspect elements, analyze CSS rules, and modify web layout properties live in your browser.</p>
+      <button id="cta-button" class="btn btn-primary">Start Scavenger Hunt</button>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features-section" class="content-section">
+      <h2 class="section-title">Inspection Modules</h2>
+      
+      <!-- Flexbox Layout Container -->
+      <div id="features-grid" class="flex-container">
+        
+        <article id="card-dom" class="card">
+          <span class="badge">DOM Tree</span>
+          <h3 class="card-title">Element Structure</h3>
+          <p class="card-text">Inspect the document tree to find tags, nested nodes, unique IDs, and assigned class attributes.</p>
+        </article>
+
+        <article id="card-css" class="card">
+          <span class="badge">Styles</span>
+          <h3 class="card-title">CSS & Properties</h3>
+          <p class="card-text">Examine live style rules, CSS variables, colors, font properties, and box-shadow declarations.</p>
+        </article>
+
+        <article id="card-layout" class="card">
+          <span class="badge">Layout</span>
+          <h3 class="card-title">Flexbox Controls</h3>
+          <p class="card-text">Target parent containers using flexbox to control layout direction, alignment, and spacing.</p>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer id="site-footer" class="footer-area">
+    <p class="copyright-text">© 2026 Web Development Academy — Chrome DevTools Guided Activity</p>
+  </footer>
+
+</body>
+</html>
